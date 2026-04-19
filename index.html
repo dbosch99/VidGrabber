@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VidGrabber</title>
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px;
+      line-height: 1.6;
+      color: #111;
+      background: #fff;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin: 0;
+    }
+
+    h2 {
+      margin-top: 40px;
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 14px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      background: #111;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .box {
+      margin-top: 32px;
+      padding: 24px;
+      border: 1px solid #ddd;
+      border-radius: 16px;
+    }
+
+    .small {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="title">
+    <img src="icon.png" alt="VidGrabber icon" class="icon">
+    <h1>VidGrabber</h1>
+  </div>
+
+  <p class="small">
+    Requisiti minimi: macOS 13 Ventura • Apple Silicon
+  </p>
+
+  <p>
+    Utility per macOS che sfrutta yt-dlp per scaricare video e audio da diverse piattaforme.
+    L'app legge i cookie di Chrome, quindi l'URL del contenuto da scaricare deve essere copiato da Chrome e incollato nell'app.
+  </p>
+
+  <div class="box">
+    <h2>Cosa fa</h2>
+    <p>
+      Dopo aver incollato l'URL, VidGrabber analizza il contenuto e mostra i formati disponibili restituiti da yt-dlp,
+      inclusi flussi solo video, solo audio e file completi con audio e video.
+    </p>
+    <p>
+      Questo permette di scegliere con precisione il formato da scaricare, valutando risoluzione, codec,
+      dimensione stimata e tipo di stream direttamente dall'interfaccia.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>Come funziona</h2>
+    <p>
+      Basta copiare da Chrome l'URL del contenuto e incollarlo nell'app.
+      VidGrabber utilizza i cookie di Chrome per accedere correttamente ai contenuti supportati.
+    </p>
+    <p>
+      Una volta caricata la lista dei formati, il codice da usare per il download si trova nella prima colonna,
+      indicata come ID.
+    </p>
+    <p>
+      Se il formato scelto contiene già sia video che audio, non è necessario inserire il codice audio.
+      Se invece si seleziona un formato solo video, è possibile aggiungere anche un codice audio separato.
+    </p>
+    <p>
+      L'app è sviluppata in Swift e utilizza yt-dlp come motore di estrazione e download.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>Download</h2>
+
+    <p class="small">
+      Versione: 19-04-2026
+    </p>
+
+    <a class="button" href="https://github.com/dbosch99/VidGrabber/releases/latest/download/VidGrabber-macOS.zip">
+      Scarica per macOS
+    </a>
+
+    <p class="small">
+      L'app non è firmata con certificato Apple. macOS bloccherà il primo avvio.
+      Segui le istruzioni incluse nello ZIP per aprirla.
+    </p>
+  </div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js', { scope: './' }).catch(console.error);
+      });
+    }
+  </script>
+
+</body>
+</html>
